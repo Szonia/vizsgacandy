@@ -1,0 +1,52 @@
+
+h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+    margin-top: 30px;
+    text-align: center;
+
+  }
+  
+ 
+  button {
+    background-color: #030608;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    display: block;
+    margin: 20px auto;
+  }
+  
+  button:hover {
+    background-color: #555;
+    transform: scale(1.05);
+  }
+  
+  button:focus {
+    outline: none;
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.6);
+  }
+  
+  button:active {
+    background-color: #003f7f;
+  }
+  
+ 
+  @media (min-width: 768px) {
+    h2 {
+      font-size: 2.5rem;
+    }
+  
+    button {
+      padding: 15px 30px;
+      font-size: 1.2rem;
+    }
+  }
+  

@@ -1,0 +1,34 @@
+<div class="rendezes-gombok">
+  <button (click)="sortProducts('low-to-high')">
+    <i class="bi bi-arrow-down"></i> Legolcsóbbak
+  </button>
+  
+  <button (click)="sortProducts('high-to-low')">
+    <i class="bi bi-arrow-up"></i> Legdrágábbak
+  </button>
+
+</div>
+
+
+<div class="csipos-chipsek-lista">
+  <div *ngFor="let chip of chipsek; let i = index" class="csipos-chipsek-item">
+    <div class="csipos-chipsek-card">
+      <h3>{{ chip.nev }}</h3>
+      <img [src]="chip.image" [alt]="chip.nev" class="csipos-chipsek-kep">
+      <p class="leiras"> {{ chip.leiras }} </p>
+      <p class="ar">Ár: {{ chip.ar }} Ft</p>
+      <div class="mennyiseg">
+        Mennyiség: <input type="number" [(ngModel)]="chip.darab" min="1">
+      </div>
+      <button class="kosar-gomb" (click)="kosarbaRak(i)">
+        Kosárba rakom
+      </button>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="showNotification" class="notification">
+  A termék kosárba rakva!
+</div>
+
+<button class="scroll-to-top" (click)="scrollToTop()">↑</button>

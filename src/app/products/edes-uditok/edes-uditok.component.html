@@ -1,0 +1,33 @@
+<div class="rendezes-gombok">
+  <button (click)="sortProducts('low-to-high')">
+    <i class="bi bi-arrow-down"></i> Legolcsóbbak
+  </button>
+  
+  <button (click)="sortProducts('high-to-low')">
+    <i class="bi bi-arrow-up"></i> Legdrágábbak
+  </button>
+</div>
+
+<div class="edes-uditok-lista">
+  <div *ngFor="let uditok of uditok; let i = index" class="edes-uditok-item">
+    <div class="edes-uditok-card">
+      <h3>{{ uditok.nev }}</h3>
+      <img [src]="uditok.image" [alt]="uditok.nev" class="edes-uditok-kep">
+      <p class="leiras"> {{ uditok.leiras }} </p>
+      <p class="ar">Ár: {{ uditok.ar }} Ft</p>
+      <div class="mennyiseg">
+        Mennyiség: <input type="number" [(ngModel)]="uditok.darab" min="1">
+      </div>
+      <button class="kosar-gomb" (click)="kosarbaRak(i)">
+        Kosárba rakom
+      </button>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="showNotification" class="notification">
+  A termék kosárba rakva!
+</div>
+
+
+<button class="scroll-to-top" (click)="scrollToTop()">↑</button>

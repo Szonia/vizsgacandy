@@ -1,0 +1,27 @@
+
+     .product-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 62px; /* Az elemek közötti távolság */
+    }
+    
+    .product {
+      width: 30%; /* Két termék egy sorban, kisebb méret */
+    }
+    
+    .image-container {
+      margin-top: 40px;
+      overflow: hidden; /* A kép ne lógjon ki */
+    }
+    
+    .product-image {
+      width: 100%; /* A képek teljes szélességükben legyenek, a div-en belül */
+      transition: all 0.3s ease;
+    }
+    
+    .product-image:hover {
+      transform: scale(1.1);  /* Kép nagyítása */
+      box-shadow: 0 5px 9px rgba(0, 0, 0, 0.2); /* Árnyék hozzáadása */
+    }
+    
+    

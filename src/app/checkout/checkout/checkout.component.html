@@ -1,0 +1,46 @@
+<form (ngSubmit)="submitOrder()">
+    <h2>Rendelés leadása</h2>
+  
+    <div>
+      <label for="firstName">Keresztnév</label>
+      <input id="firstName" [(ngModel)]="order.firstName" name="firstName" required />
+    </div>
+  
+    <div>
+      <label for="lastName">Vezetéknév</label>
+      <input id="lastName" [(ngModel)]="order.lastName" name="lastName" required />
+    </div>
+  
+    <div>
+      <label for="postalCode">Irányítószám</label>
+      <input id="postalCode" [(ngModel)]="order.postalCode" name="postalCode" required />
+    </div>
+  
+    <div>
+      <label for="email">Email cím</label>
+      <input id="email" type="email" [(ngModel)]="order.email" name="email" required />
+    </div>
+  
+    <div>
+      <label for="houseNumber">Házszám</label>
+      <input id="houseNumber" [(ngModel)]="order.houseNumber" name="houseNumber" required />
+    </div>
+  
+    <div>
+      <label for="city">Város</label>
+      <input id="city" [(ngModel)]="order.city" name="city" required />
+    </div>
+  
+    <div>
+      <label for="phoneNumber">Telefonszám</label>
+      <input id="phoneNumber" [(ngModel)]="order.phoneNumber" name="phoneNumber" required />
+    </div>
+  
+    <button type="submit">Rendelés leadása</button>
+  </form>
+  
+  <!-- Success message displayed after order submission -->
+  <p *ngIf="successMessage" class="success-message">
+    {{ successMessage }}
+  </p>
+  

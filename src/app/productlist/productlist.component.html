@@ -1,0 +1,23 @@
+<!-- {{products|json}} -->
+<div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4">
+
+    <div *ngFor="let product of products" class="col">
+      <div class="card h-100">
+        <img [src]="product.keplink" class="card-img-top" [alt]="product.termeknev">
+        <div class="card-body">
+          <h5 class="card-title">{{product.termeknev}}</h5>
+          <p class="card-text">{{product.leiras}}</p>
+        </div>
+        <div class="card-footer">
+            <small class="text-muted">
+                <div class="input-group mb-3">
+                    <input [(ngModel)]="product.db" type="number" min="0" class="form-control">
+                    <button [disabled]="!product.db" (click)="addProduct(product)" class="btn btn-outline-secondary" type="button">Kosárba</button>
+                </div> 
+            </small>
+        </div>
+    </div>
+
+    </div>
+   
+  </div>

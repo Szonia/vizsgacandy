@@ -1,0 +1,22 @@
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <h2>Belépés</h2>
+
+  <label for="email">Email</label>
+  <input type="email" id="email" formControlName="email" required>
+  <div *ngIf="loginForm.controls['email'].invalid && loginForm.controls['email'].touched">
+    <small style="color: red;">Érvényes email cím szükséges!</small>
+  </div>
+
+  <label for="password">Jelszó</label>
+  <input type="password" id="password" formControlName="password" required>
+  <div *ngIf="loginForm.controls['password'].invalid && loginForm.controls['password'].touched">
+    <small style="color: red;">A jelszó legalább 5 karakter hosszú kell legyen!</small>
+  </div>
+
+  <button type="submit" [disabled]="loginForm.invalid">Bejelentkezés</button>
+</form>
+
+
+
+
+
