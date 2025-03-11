@@ -1,5 +1,6 @@
 
 import { Component } from '@angular/core';
+import { ProductlistService } from '../../productlist.service';
 
 @Component({
   selector: 'app-fooldal',
@@ -29,6 +30,9 @@ export class FooldalComponent {
   scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
+
+
+  constructor(private productsServ:ProductlistService){}
 }
 
 

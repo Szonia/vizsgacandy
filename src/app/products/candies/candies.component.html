@@ -11,14 +11,14 @@
   </div>
   
   <div class="edes-gumicukrok-lista">
-    <div *ngFor="let gumicukor of candies; let i = index" class="edes-gumicukrok-item">
+    <div *ngFor="let candy of candies; let i = index" class="edes-gumicukrok-item">
       <div class="edes-gumicukrok-card">
-        <h3>{{ gumicukor.nev }}</h3>
-        <img [src]="gumicukor.image" [alt]="gumicukor.Name" class="edes-gumicukrok-kep">
-        <p class="leiras"> {{ gumicukor.leiras }} </p>
-        <p class="ar">Ár: {{ gumicukor.ar }} Ft</p>
+        <h3>{{ candy.Name }}</h3>
+        <img [src]="candy.image" [alt]="candy.Name" class="edes-gumicukrok-kep">
+        <p class="leiras"> {{ candy.Description }} </p>
+        <p class="ar">Ár: {{ candy.Price }} Ft</p>
         <div class="mennyiseg">
-          Mennyiség: <input type="number" [(ngModel)]="gumicukor.darab" min="1">
+          Mennyiség: <input type="number" [(ngModel)]="candy.darab" min="1">
         </div>
         <button class="kosar-gomb" (click)="kosarbaRak(i)">
           Kosárba rakom

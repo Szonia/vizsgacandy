@@ -21,7 +21,6 @@ import { SavanyuUditokComponent } from './products/savanyu-uditok/savanyu-uditok
 import { FiokomComponent } from './account/fiokom/fiokom.component';
 import { KapcsolatComponent } from './contact-us/kapcsolat/kapcsolat.component';
 import { KivansaglistamComponent } from './wishlist/kivansaglistam/kivansaglistam.component';
-import { FooldalComponent } from './main-page/fooldal/fooldal.component';
 import { KosarComponent } from './cart/kosar/kosar.component';
 import { LoginComponent } from './account/login/login.component';
 import { RegistrationComponent } from './account/registration/registration.component';
@@ -47,6 +46,7 @@ import { CheckoutComponent } from './checkout/checkout/checkout.component';
 import { environments } from '../environment/environments';
 import { CandyListComponent } from './products/candy-list/candy-list.component';
 import { CandiesComponent } from './products/candies/candies.component';
+import { FooldalComponent } from './main-page/fooldal/fooldal.component';
 
 
 @NgModule({
@@ -73,7 +73,6 @@ import { CandiesComponent } from './products/candies/candies.component';
     FiokomComponent,
     KapcsolatComponent,
     KivansaglistamComponent,
-    FooldalComponent,
     KosarComponent,
     RegistrationComponent,
     LoginComponent,

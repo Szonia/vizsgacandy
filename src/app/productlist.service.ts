@@ -7,8 +7,7 @@ import { BehaviorSubject, map } from 'rxjs';
   providedIn: 'root'
 })
 export class ProductlistService {
-  // private productsApi="http://localhost:3000/termekek/"
-  private productsApi="https://webshop-8fcd0-default-rtdb.europe-west1.firebasedatabase.app/termekek"
+ 
   private produtctsSub= new BehaviorSubject<any>(null)
 
   productsRef : AngularFireList<any>

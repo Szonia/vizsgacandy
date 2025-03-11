@@ -34,6 +34,7 @@ import { AdminloginComponent } from './admin/login/adminlogin/adminlogin.compone
 import { CandyListComponent } from './products/candy-list/candy-list.component';
 
 
+
 const routes: Routes = [
 
   // { path: '', redirectTo: '/fooldal', pathMatch: 'full' },
