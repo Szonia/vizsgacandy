@@ -45,6 +45,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AdminloginComponent } from './admin/login/adminlogin/adminlogin.component';
 import { CheckoutComponent } from './checkout/checkout/checkout.component';
 import { environments } from '../environment/environments';
+import { CandyListComponent } from './products/candy-list/candy-list.component';
+import { CandiesComponent } from './products/candies/candies.component';
 
 
 @NgModule({
@@ -90,16 +92,19 @@ import { environments } from '../environment/environments';
     warheadsComponent,
 
     AdminloginComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    CandyListComponent,
+    CandiesComponent
     
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    FormsModule,
+
     ReactiveFormsModule,
     RouterModule,
+    FormsModule,
     AngularFireModule.initializeApp(environments.firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule

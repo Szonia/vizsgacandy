@@ -25,5 +25,10 @@ export class FooldalComponent {
    redirectToUrl(url: string) {
     window.location.href = url;
   }
+
+  scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 }
+
 

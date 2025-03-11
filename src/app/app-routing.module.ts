@@ -31,11 +31,13 @@ import { sourComponent } from './brands/sour/sour/sour.component';
 import { takisComponent } from './brands/takis/takis/takis.component';
 import { warheadsComponent } from './brands/warheads/warheads/warheads.component';
 import { AdminloginComponent } from './admin/login/adminlogin/adminlogin.component';
+import { CandyListComponent } from './products/candy-list/candy-list.component';
 
 
 const routes: Routes = [
 
-  { path: '', redirectTo: '/fooldal', pathMatch: 'full' },
+  // { path: '', redirectTo: '/fooldal', pathMatch: 'full' },
+  { path: '', component:CandyListComponent },
 
   { path: 'fiokom', component: FiokomComponent },
   { path: 'registration', component: RegistrationComponent },
