@@ -37,10 +37,14 @@ import { skittlesComponent } from './brands/skittles/skittles/skittles.component
 import { sourComponent } from './brands/sour/sour/sour.component';
 import { takisComponent } from './brands/takis/takis/takis.component';
 import { warheadsComponent } from './brands/warheads/warheads/warheads.component';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { AdminloginComponent } from './admin/login/adminlogin/adminlogin.component';
 import { CheckoutComponent } from './checkout/checkout/checkout.component';
+import { environments } from '../environment/environments';
 
 
 @NgModule({
@@ -95,7 +99,10 @@ import { CheckoutComponent } from './checkout/checkout/checkout.component';
     NgbModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule
+    RouterModule,
+    AngularFireModule.initializeApp(environments.firebaseConfig),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
 
   ],
   providers: [provideHttpClient()],
