@@ -1,8 +1,10 @@
 <h2>Kosár</h2>
 
 <div class="cart-container" *ngIf="cartItems && cartItems.length; else emptyCart">
-  <button class="checkout-btn" routerLink="/checkout">Pénztárhoz</button>
-
+  <div class="checkout-container">
+    <button class="checkout-btn">Pénztárhoz</button>
+  </div>
+  
   <div *ngFor="let item of cartItems">
     <div class="cart-item">
       <p>{{ item.name }}</p>
