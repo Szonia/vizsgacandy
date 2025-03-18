@@ -1,5 +1,7 @@
-<p>candies works!</p>
- {{candies|json}}
+<!-- <p>candies works!</p>
+ {{candies|json}} -->
+
+
 <div class="rendezes-gombok">
     <button (click)="sortProducts('low-to-high')">
       <i class="bi bi-arrow-down"></i> Legolcsóbbak
@@ -13,10 +15,10 @@
   <div class="edes-gumicukrok-lista">
     <div *ngFor="let candy of candies; let i = index" class="edes-gumicukrok-item">
       <div class="edes-gumicukrok-card">
-        <h3>{{ candy.Name }}</h3>
-        <img [src]="candy.image" [alt]="candy.Name" class="edes-gumicukrok-kep">
-        <p class="leiras"> {{ candy.Description }} </p>
-        <p class="ar">Ár: {{ candy.Price }} Ft</p>
+        <h3>{{ candy.name }}</h3>
+        <img [src]="candy.image" [alt]="candy.name" class="edes-gumicukrok-kep">
+        <p class="leiras"> {{ candy.description }} </p>
+        <p class="ar">Ár: {{ candy.price }} Ft</p>
         <div class="mennyiseg">
           Mennyiség: <input type="number" [(ngModel)]="candy.darab" min="1">
         </div>
