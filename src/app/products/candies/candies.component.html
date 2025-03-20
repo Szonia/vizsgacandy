@@ -1,8 +1,46 @@
-<!-- <p>candies works!</p>
- {{candies|json}} -->
+<p>candies works!</p>
+ {{candies|json}}
 
 
-<div class="rendezes-gombok">
+ <div class="rendezes-gombok">
+  <button (click)="sortProducts('low-to-high')">
+    <i class="bi bi-arrow-down"></i> Legolcsóbbak
+  </button>
+
+  <button (click)="sortProducts('high-to-low')">
+    <i class="bi bi-arrow-up"></i> Legdrágábbak
+  </button>
+</div>
+
+<div class="edes-gumicukrok-lista">
+  <div *ngFor="let candy of candies; let i = index" class="edes-gumicukrok-item">
+    <div class="edes-gumicukrok-card">
+      <h3>{{ candy.name }}</h3> 
+      <img [src]="candy.image" [alt]="candy.name" class="edes-gumicukrok-kep">
+      
+      <p class="leiras"> {{ candy.description }} </p> 
+      <p class="ar">Ár: {{ candy.price }} Ft</p>
+      <div class="mennyiseg">
+        Mennyiség: <input type="number" [(ngModel)]="candy.quantity" min="1">
+      </div>
+      <button class="kosar-gomb" (click)="kosarbaRak(candy)">
+        Kosárba rakom
+      </button>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="showNotification" class="notification">
+  A termék kosárba rakva!
+</div>
+
+<button class="scroll-to-top" (click)="scrollToTop()">↑</button>
+
+
+
+
+
+<!-- <div class="rendezes-gombok">
     <button (click)="sortProducts('low-to-high')">
       <i class="bi bi-arrow-down"></i> Legolcsóbbak
     </button>
@@ -33,4 +71,4 @@
     A termék kosárba rakva!
   </div>
   
-  <button class="scroll-to-top" (click)="scrollToTop()">↑</button>
+  <button class="scroll-to-top" (click)="scrollToTop()">↑</button> -->

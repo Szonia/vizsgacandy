@@ -18,6 +18,7 @@ export class KosarComponent implements OnInit {
 
   loadCart() {
     this.cartItems = this.cartService.getCartItems().map(item => ({ ...item }));
+    console.log('valami', this.cartItems);
     this.calculateTotalPrice();
   }
 

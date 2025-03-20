@@ -38,14 +38,16 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class CartService {
-  private cart: { id: string, name: string, price: number, quantity: number }[] = [];
+  private cart: any[]= [];
 
-  addToCart(id: string, name: string, price: number) {
-    const existingItem = this.cart.find(item => item.id === id);
+  addToCart(candy:any) {
+    console.log("alaaaaaa")
+    const existingItem = this.cart.find(item => item.id === candy.id);
+    console.log("elem", existingItem)
     if (existingItem) {
       existingItem.quantity++;
     } else {
-      this.cart.push({ id, name, price, quantity: 1 });
+      this.cart.push(candy);
     }
   }
 
