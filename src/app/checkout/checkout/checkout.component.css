@@ -111,5 +111,13 @@ form {
   }
   
 
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+  transition: opacity 0.5s ease-out;
+}
+
+
 
 
