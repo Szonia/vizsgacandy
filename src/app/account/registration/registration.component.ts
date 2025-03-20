@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms'; // Importáljuk a szükséges formokat
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-registration',
@@ -29,9 +29,8 @@ export class RegistrationComponent {
   onSubmit() {
     if (this.registrationForm.valid) {
       const formValue = this.registrationForm.value;
-      // Regisztrált felhasználó adatainak elmentése a localStorage-ba
       localStorage.setItem('userEmail', formValue.email);
-      localStorage.setItem('userPassword', formValue.password); // Ne tedd ezt éles környezetben, csak példa!
+      localStorage.setItem('userPassword', formValue.password); 
       alert('Regisztráció sikeres!');
       this.router.navigate(['/login']);
     }
