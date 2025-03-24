@@ -15,32 +15,34 @@ export class CandiesComponent {
 
   kosarbaRak(candy: any) {
     const termek = {
-      ...candy,       // Az egész termék objektum
-      picture: candy.picture  // Kép hozzáadása
+      ...candy,       
+      picture: candy.picture  
     };
     
-    this.cartService.addToCart(termek);  // Hozzáadjuk a terméket a kosárhoz
+    this.cartService.addToCart(termek);  
     console.log(candy, `hozzáadva a kosárhoz.`);
     console.log('Kosár tartalma:', this.cartService.getCartItems());
 
     this.showNotification = true;
-    this.cdr.detectChanges();  // Frissítjük a változásokat
+    this.cdr.detectChanges();  
 
-    // Értesítés eltüntetése
+    
     setTimeout(() => {
       this.showNotification = false;
       this.cdr.detectChanges();
       console.log('Értesítés eltüntetve:', this.showNotification);
     }, 500);
   }
-
   sortProducts(order: string) {
-    if (order === 'low-to-high') {
-      this.candies.sort((a: any, b: any) => a.ar - b.ar);
-    } else if (order === 'high-to-low') {
-      this.candies.sort((a: any, b: any) => b.ar - a.ar);
+    if (order === 'high-to-low') {
+      this.candies.sort((a: { price: number; }, b: { price: number; }) => b.price - a.price);  
+    } else if (order === 'low-to-high') {
+      this.candies.sort((a: { price: number; }, b: { price: number; }) => a.price - b.price);  
     }
   }
+  
+  
+  
 
   scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
