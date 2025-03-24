@@ -1,17 +1,113 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
-  private kosar:any=[]
-  private kosarSub = new BehaviorSubject<any>([])
+  addProduct(product: any) {
+    throw new Error('Method not implemented.');
+  }
+  private kosar: any[] = [];
+  private kosarSub = new BehaviorSubject<any[]>([]);
 
-private productsApi="https://webshop-X8fcd0-default-rtdb.europe-west1.firebasedatabase.app/megrendelesek"
+  private productsApi = "https://webshop-X8fcd0-default-rtdb.europe-west1.firebasedatabase.app/megrendelesek.json";
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) {}
+
+  // Kosár Observable-ként
+  getCart(): Observable<any[]> {
+    return this.kosarSub.asObservable();
+  }
+
+  // Termék hozzáadása a kosárhoz (kép és egyéb információk is)
+  addToCart(product: any) {
+    const existingItem = this.kosar.find(item => item.id === product.id);
+    if (existingItem) {
+      existingItem.quantity++;
+    } else {
+      if (!product.quantity) product.quantity = 1;
+      this.kosar.push(product);
+    }
+    this.kosarSub.next(this.kosar);  // Frissítjük a kosár állapotát
+  }
+
+  // Kosárban lévő termékek lekérése
+  getCartItems() {
+    return this.kosar;
+  }
+
+  // Kosár összes árának kiszámítása
+  getTotalPrice(): number {
+    return this.kosar.reduce((total, item) => total + item.ar * item.quantity, 0);
+  }
+
+  // Termék eltávolítása a kosárból
+  removeFromCart(productId: string) {
+    this.kosar = this.kosar.filter(item => item.id !== productId);
+    this.kosarSub.next(this.kosar);  // Frissítjük a kosár tartalmát
+  }
+
+  // Kosár megrendelés küldése az adatbázisba
+  order() {
+    return this.http.post(this.productsApi, this.kosar);
+  }
+}
+
+
+
+// import { HttpClient } from '@angular/common/http';
+// import { Injectable } from '@angular/core';
+// import { BehaviorSubject, Observable } from 'rxjs';
+
+// @Injectable({
+//   providedIn: 'root'
+// })
+// export class CartService {
+//   private kosar: any[] = [];
+//   private kosarSub = new BehaviorSubject<any[]>([]);
+
+//   private productsApi = "https://webshop-X8fcd0-default-rtdb.europe-west1.firebasedatabase.app/megrendelesek.json";
+
+//   constructor(private http: HttpClient) { }
+
+//   // Kosár Observable-ként
+//   getCart(): Observable<any[]> {
+//     return this.kosarSub.asObservable();
+//   }
+
+//   // 👉 Verzió 1 – teljes termék objektum hozzáadása
+//   addToCart(product: any) {
+//     this.kosar.push(product);
+//     this.kosarSub.next(this.kosar);
+//   }
+
+//   // 👉 Verzió 2 – id, név, ár paraméterekkel
+//   addToCartByParams(id: string, nev: string, ar: number) {
+//     const product = { id, nev, ar };
+//     this.kosar.push(product);
+//     this.kosarSub.next(this.kosar);
+//   }
+
+//   // Alternatív név, ha így hívod máshol
+//   addProduct(product: any) {
+//     this.addToCart(product); // ugyanaz mint az első verzió
+//   }
+
+//   // Kosár tartalom szinkronban
+//   getCartItems() {
+//     return this.kosar;
+//   }
+
+//   // Megrendelés mentése adatbázisba
+//   order() {
+//     return this.http.post(this.productsApi, this.kosar);
+//   }
+// }
+
+
+
 
   // order(){
   //   let body={
@@ -54,4 +150,4 @@ private productsApi="https://webshop-X8fcd0-default-rtdb.europe-west1.firebaseda
   //   }
   //   this.kosarSub.next(this.kosar)
   // }
-}
+

@@ -121,7 +121,7 @@ export class takisComponent {
 
   kosarbaRak(i: number) {
     const termek = this.takis[i];
-    this.cartService.addToCart(termek.id, termek.nev, termek.ar);
+    this.cartService.addToCart(termek);
     console.log(`"${termek.nev}" hozzáadva a kosárhoz.`);
     console.log('Kosár tartalma:', this.cartService.getCartItems());
 

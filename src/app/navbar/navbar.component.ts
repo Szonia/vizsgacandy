@@ -22,7 +22,7 @@ export class NavbarComponent {
   ];
 
   constructor(private cartServ: CartService) {
-    this.cartServ.getCart().subscribe((res) => this.cart = res);
+    this.cartServ.getCart().subscribe((res: any) => this.cart = res);
   }
 
   addOrder() {

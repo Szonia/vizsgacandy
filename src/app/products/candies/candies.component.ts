@@ -1,4 +1,3 @@
-// candies.component.ts
 import { ChangeDetectorRef, Component, Input } from '@angular/core';
 import { CartService } from '../../services/cart/cart.service';
 
@@ -15,16 +14,19 @@ export class CandiesComponent {
   constructor(private cartService: CartService, private cdr: ChangeDetectorRef) {}
 
   kosarbaRak(candy: any) {
-
-  
-    const termek =candy;
-    this.cartService.addToCart(candy);
-    console.log(candy,` hozzáadva a kosárhoz.`)
+    const termek = {
+      ...candy,       // Az egész termék objektum
+      picture: candy.picture  // Kép hozzáadása
+    };
+    
+    this.cartService.addToCart(termek);  // Hozzáadjuk a terméket a kosárhoz
+    console.log(candy, `hozzáadva a kosárhoz.`);
     console.log('Kosár tartalma:', this.cartService.getCartItems());
 
     this.showNotification = true;
-    this.cdr.detectChanges();
+    this.cdr.detectChanges();  // Frissítjük a változásokat
 
+    // Értesítés eltüntetése
     setTimeout(() => {
       this.showNotification = false;
       this.cdr.detectChanges();
@@ -44,6 +46,55 @@ export class CandiesComponent {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 }
+
+
+
+// // candies.component.ts
+// import { ChangeDetectorRef, Component, Input } from '@angular/core';
+// import { CartService } from '../../services/cart/cart.service';
+
+// @Component({
+//   selector: 'app-candies',
+//   templateUrl: './candies.component.html',
+//   styleUrls: ['./candies.component.css']
+// })
+// export class CandiesComponent {
+
+//   @Input() candies: any;
+//   showNotification = false;
+
+//   constructor(private cartService: CartService, private cdr: ChangeDetectorRef) {}
+
+//   kosarbaRak(candy: any) {
+
+  
+//     const termek =candy;
+//     this.cartService.addToCart(candy);
+//     console.log(candy,` hozzáadva a kosárhoz.`)
+//     console.log('Kosár tartalma:', this.cartService.getCartItems());
+
+//     this.showNotification = true;
+//     this.cdr.detectChanges();
+
+//     setTimeout(() => {
+//       this.showNotification = false;
+//       this.cdr.detectChanges();
+//       console.log('Értesítés eltüntetve:', this.showNotification);
+//     }, 500);
+//   }
+
+//   sortProducts(order: string) {
+//     if (order === 'low-to-high') {
+//       this.candies.sort((a: any, b: any) => a.ar - b.ar);
+//     } else if (order === 'high-to-low') {
+//       this.candies.sort((a: any, b: any) => b.ar - a.ar);
+//     }
+//   }
+
+//   scrollToTop() {
+//     window.scrollTo({ top: 0, behavior: 'smooth' });
+//   }
+// }
 
 
 
